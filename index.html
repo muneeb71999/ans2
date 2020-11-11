@@ -9,12 +9,11 @@
   <meta name="description"
     content="Maui helicopter tours are a great way to see the island from a different perspective and have a fun adventure. If you have never been on a helicopter before, this is a great place to do it.">
   <link rel="stylesheet" href="./dist/main.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="/img/logo.svg" type="image/x-icon">
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: "DM Sans", sans-serif;
       font-weight: 400;
     }
 
@@ -55,6 +54,10 @@
       color: black;
     }
 
+    .scrolled-navbutton {
+      color: rgb(27, 27, 27) !important;
+    }
+
     .scrolled * button {
       color: black;
       border: 1px solid rgb(49, 49, 49);
@@ -73,7 +76,7 @@
   </style>
 </head>
 
-<body class="bg-white" x-data="{isVideoOpen : false}">
+<body class="bg-white">
 
   <div class="overflow-x-hidden test">
 
@@ -83,9 +86,7 @@
       height: 90%;
       top: -30%;
       right: -17%;
-      z-index: -1;
-
-      "></div>
+      z-index: -1;"></div>
 
     <!-- Navbar Start -->
     <nav class="w-full navbar z-20">
@@ -94,23 +95,20 @@
           <img src="./img/logo.svg" alt="Productly Logo" class="w-32">
         </a>
 
+        <input type="text" name="search"
+          class="px-4 py-2 border-2 border-gray-500 rounded-md w-1/3 ml-24 hidden md:block" placeholder="Search here">
+
         <div class="hidden lg:flex justify-between gap-6 items-center">
           <a href="/" class="hover:text-black text-white">Home</a>
-          <a href="/" class="hover:text-black text-white">About</a>
-          <a href="/" class="hover:text-black text-white">Pricing</a>
-          <a href="/" class="hover:text-black text-white">Contact</a>
-          <button
-            class="border bg-transparent py-2 px-4 rounded-md border-white text-white hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-100">Sign
-            in</button>
-          <button
-            class="border bg-gray-900 hover:bg-transparent py-2 px-4 hover:text-white rounded-md hover:border-gray-400  text-white border-gray-900 transition-all duration-100">Sign
-            up</button>
+          <a href="/" class="hover:text-black text-white">Question</a>
+          <a href="/" class="hover:text-black text-white">Answers</a>
+          <a href="/" class="hover:text-black text-white">Authors</a>
         </div>
 
         <div class="block lg:hidden" x-data="{ isOpen: false }">
           <div @click="isOpen = !isOpen">
-            <svg class="w-8 h-8 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-8 h-8 text-white navbar-toogle cursor-pointer" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </div>
@@ -119,15 +117,12 @@
             class="flex-column justify-between gap-6 items-center absolute  bg-white w-full left-0 shadow-lg px-4 py-6"
             x-show="isOpen" @click.away="isOpen = false">
             <a href="/" class="hover:text-red-500 black block my-1 py-2">Home</a>
-            <a href="/" class="hover:text-red-500 black block my-1 py-2">About</a>
-            <a href="/" class="hover:text-red-500 black block my-1 py-2">Pricing</a>
-            <a href="/" class="hover:text-red-500 black block my-1 py-2">Contact</a>
-            <button
-              class="border bg-transparent py-2 px-4 rounded-md border-gray-800 text-gray-800 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-100">Sign
-              in</button>
-            <button
-              class="border bg-gray-900 hover:bg-transparent py-2 px-4 hover:text-gray-900 rounded-md hover:border-gray-900  text-white border-gray-900 transition-all duration-100 ml-4">Sign
-              up</button>
+            <a href="/" class="hover:text-red-500 black block my-1 py-2">Question</a>
+            <a href="/" class="hover:text-red-500 black block my-1 py-2">Answers</a>
+            <a href="/" class="hover:text-red-500 black block my-1 py-2">Authors</a>
+            <input type="text" name="search" class="px-4 py-2 border-2 border-gray-600 rounded-md w-full mt-2"
+              placeholder="Search here">
+
           </div>
 
         </div>
@@ -139,35 +134,20 @@
     <main class="max-w-screen-full md:max-w-screen-xl mx-auto">
 
       <!-- Hero Start -->
-      <section
-        class="grid md:grid-cols-2 gap-8 items-center justify-between w-full max-w-7xl px-4 sm:px-8 py-12 sm:py-16 md:py-24">
-        <div>
-          <h1 class="font-normal text-5xl leading-tight">A Guide To <strong>Rocky</strong> Mountain Vacations</h1>
-          <p class="font-normal leading-normal mt-8 max-w-sm">Maui helicopter tours are a great way to see the island
-            from a different perspective and have a fun adventure. If you have never been on a helicopter before, this
-            is a great place to do it. </p>
-          <div class="mt-12  flex-column sm:flex items-center justify-start gap-8">
+      <section class="flex items-center justify-center w-full max-w-7xl px-4 sm:px-8 py-12 sm:py-16 md:py-32"
+        style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%), url(/img/hero.jpg); background-size: cover; background-position: center; ">
+        <div class="text-center text-white">
+          <h1 class="font-bold text-6xl leading-tight mt-8">Get Answered!</h1>
+          <p class="font-normal text-3xl mt-2 leading-tight max-w-xl text-center">3203 people are
+            ready
+            to answer your
+            questions
+          </p>
+          <div class="mt-8 flex-column sm:flex items-center justify-center gap-8">
             <button
               class="border border-red-500 rounded-md bg-red-500 font-bold text-white px-10 py-3 hover:text-black hover:bg-white transition-all duration-100 hover:shadow-xl">
-              Get Started
+              Ask Now
             </button>
-          </div>
-        </div>
-        <div class="bg-transparent relative">
-          <div @click="isVideoOpen = true" class="cursor-pointer">
-            <svg class="w-24 text-white rounded-full h-24 absolute transform -translate-x-1/2 -translate-y-1/2" style="
-            top: 50%; left: 50%; 
-            box-shadow:
-            0 0 0 10px hsl(0, 0%, 100%);
-
-            " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-              </path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <img src="/img/hero.jpg" alt="Hero imagine" class="w-full rounded-md">
           </div>
         </div>
       </section>
@@ -176,38 +156,71 @@
       <!-- Services Section Start -->
       <section class="w-full bg-white px-4 sm:px-8 py-12 sm:py-16 md:py-24">
 
-        <h2 class="font-bold text-center text-3xl max-w-md w-full mx-auto">We design tools to unveil your
-          superpowers</h2>
+        <h2 class="font-bold text-center text-4xl max-w-md w-full mx-auto">Categories of Month!</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-          <div class="bg-white hover:shadow-xl rounded-md px-4 py-2 flex-column items-start justify-between">
-            <div class="w-16 h-16 inline-flex border border-red-500 rounded-md justify-center items-center">
-              <img src="./img/atlas.svg" alt="" loading="lazy">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/art.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
             </div>
-            <h3 class="font-semibold text-xl mt-6">First click tests</h3>
-            <p class="mt-4">While most people enjoy casino gambling,</p>
+            <h3 class="font-semibold text-2xl mt-4">Art</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
           </div>
-          <div class="bg-white hover:shadow-xl rounded-md px-4 py-2 flex-column items-start justify-between">
-            <div class="w-16 h-16 inline-flex border border-red-500 rounded-md justify-center items-center">
-              <img src="./img/handshake.svg" alt="" loading="lazy">
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/scienc.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
             </div>
-            <h3 class="font-semibold text-xl mt-6">Design surveys</h3>
-            <p class="mt-4">Sports betting, lottery and bingo playing for the fun</p>
+            <h3 class="font-semibold text-2xl mt-4">Science</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
           </div>
-          <div class="bg-white hover:shadow-xl rounded-md px-4 py-2 flex-column items-start justify-between">
-            <div class="w-16 h-16 inline-flex border border-red-500 rounded-md justify-center items-center bg-red-500">
-              <img src="./img/biohazard.svg" alt="" loading="lazy">
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center capitalize text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/sport.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
             </div>
-            <h3 class="font-semibold text-xl mt-6">Preference tests</h3>
-            <p class="mt-4">The Myspace page defines the individual.</p>
+            <h3 class="font-semibold text-2xl mt-4">Sport</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
           </div>
-          <div class="bg-white hover:shadow-xl rounded-md px-4 py-2 flex-column items-start justify-between">
-            <div class="w-16 h-16 inline-flex border border-red-500 rounded-md justify-center items-center">
-              <img src="./img/user-astronaut.svg" alt="" loading="lazy">
+
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center capitalize text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/fiction.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
             </div>
-            <h3 class="font-semibold text-xl mt-6">User astronaut</h3>
-            <p class="mt-4">Personal choices and the overall personality of the person. </p>
+            <h3 class="font-semibold text-2xl mt-4">Fiction</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
           </div>
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center capitalize text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/automation.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
+            </div>
+            <h3 class="font-semibold text-2xl mt-4">Automation</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
+          </div>
+
+          <div
+            class="bg-gray-100 hover:shadow-xl rounded-md px-4 py-4 flex-column items-center justify-center capitalize text-center">
+            <div class="w-16 h-16 flex border border-red-500 rounded-full justify-center items-center mx-auto">
+              <img src="./img/energy.svg" alt="" loading="lazy" class="w-10 h-10 text-red-500">
+            </div>
+            <h3 class="font-semibold text-2xl mt-4">Energy</h3>
+            <p class="mt-4">What is art?</p>
+            <p class="mt-1">How to make diagram?</p>
+          </div>
+
         </div>
       </section>
       <!-- Services Section Ends-->
@@ -215,9 +228,9 @@
       <!-- Section One -->
       <section
         class="w-full bg-white px-4 sm:px-8 py-12 sm:py-16 md:py-24 grid grid-cols-1 sm:grid-cols-2 gap-8 justify-between items-center">
-        <div class="px-4 sm:order-2">
+        <div class="px-4 sm:order-2 text-lg">
           <p class="capitalize text-lg font-medium">About</p>
-          <h2 class="font-bold text-4xl">Learn with Protips</h2>
+          <h2 class="font-bold text-4xl">Get answers with Protips</h2>
           <p class="mt-4 items-center flex">
             <span class="mr-4 p-1  rounded-full inline-block bg-red-500 text-white">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -225,7 +238,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </span>
-            Beyond The Naked Eye.
+            Question answered quickly.
           </p>
 
           <p class="mt-3 items-center flex">
@@ -235,7 +248,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </span>
-            Make Grilling A Healthy Experience.
+            Answer from industry experienced persons.
           </p>
 
           <p class="mt-3 items-center flex">
@@ -245,7 +258,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </span>
-            Make Sure Your Ice Is Safe And Clean.
+            To the point and precize answers
           </p>
 
           <p class="mt-3 items-center flex">
@@ -255,46 +268,14 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </span>
-            Peace On Earth A Wonderful Wish But No Way.
-          </p>
-
-          <p class="mt-3 items-center flex">
-            <span class="mr-4 p-1  rounded-full inline-block bg-red-500 text-white">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </span>
-            Get Best Advertiser In Your Side Pocket
-          </p>
-
-          <p class="mt-3 items-center flex">
-            <span class="mr-4 p-1  rounded-full inline-block bg-red-500 text-white">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </span>
-            What S Under Your Grill
+            Multiple answers for same question.
           </p>
 
           <div class="mt-12  flex-column sm:flex items-center justify-start gap-8">
             <button
               class="border border-red-500 rounded-md bg-red-500 font-bold text-white px-10 py-3 hover:text-black hover:bg-white transition-all duration-100 hover:shadow-xl">
-              Know More
+              Ask Question?
             </button>
-            <a class="font-bold text-red-500 flex items-center justify-start underline capitalize py-4 mt-4 sm:mt-0"
-              href="" @click="isVideoOpen = true" @click.prevent>
-              <svg class="w-6 h-6 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                </path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              watch video
-            </a>
           </div>
 
         </div>
@@ -304,54 +285,10 @@
       </section>
       <!-- Section One Ends -->
 
-      <!-- Section Two -->
-      <section class="w-full bg-white px-4 sm:px-8 py-12 sm:py-16 md:pt-24 md:pb-8">
-        <h2 class="font-bold text-4xl text-center">Testimonial</h2>
-        <p class="text-center">Vampires The Romantic Ideology Behind Them</p>
-        <div class="slider max-w-xl mx-auto overflow-hidden flex items-center justify-between">
-          <div class="text-center mt-10 min-w-full mySlides ">
-            <img
-              src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt="User_image" class="rounded-md w-24 h-24 inline-block">
-            <h3 class="font-semibold text-3xl mt-5">John Doe</h3>
-            <p class="text-red-500  capitalize mt-2">CEO, PrettyDopeDesigns</p>
-            <blockquote class="text-blue-400 w-5/6 mx-auto mt-3">
-              “When To Use High Heat On Your Barbeque, What S Under Your Grill”
-            </blockquote>
-          </div>
-          <div class="text-center mt-10 min-w-full mySlides ">
-            <img src="https://source.unsplash.com/NohB3FJSY90/640x426" alt="User_image"
-              class="rounded-md w-24 h-24 inline-block object-cover">
-            <h3 class="font-semibold text-3xl mt-5">Mack Poe</h3>
-            <p class="text-red-500  capitalize mt-2">CEO, PrettyDopeDesigns</p>
-            <blockquote class="text-blue-400 w-5/6 mx-auto mt-3">
-              “When To Use High Heat On Your Barbeque, What S Under Your Grill”
-            </blockquote>
-          </div>
-          <div class="text-center mt-10 min-w-full mySlides ">
-            <img src="https://source.unsplash.com/MTZTGvDsHFY/640x426" alt="User_image"
-              class="rounded-md w-24 h-24 inline-block object-cover">
-            <h3 class="font-semibold text-3xl mt-5">Jane Doe</h3>
-            <p class="text-red-500  capitalize mt-2">CEO, PrettyDopeDesigns</p>
-            <blockquote class="text-blue-400 w-5/6 mx-auto mt-3">
-              “When To Use High Heat On Your Barbeque, What S Under Your Grill”
-            </blockquote>
-          </div>
-        </div>
-        <div>
-          <div class="text-center mt-8 max-w-xl mx-auto">
-            <a href="" class="dot active">&nbsp;</a>
-            <a href="" class="dot">&nbsp;</a>
-            <a href="" class="dot">&nbsp;</a>
-          </div>
-        </div>
-      </section>
-      <!-- Section Two Ends -->
-
       <!-- Section Three -->
       <section class="w-full bg-white px-4 sm:px-8 py-12 sm:py-16 md:py-24">
         <h2 class="font-bold text-4xl text-center">Our Story</h2>
-        <p class="text-center">Vampires The Romantic Ideology Behind Them</p>
+        <p class="text-center">How we answer your questions?</p>
         <div class="grid sm:grid-cols-2 grid-cols-1 gap-8 sm:gap-32 mt-24">
           <div class="flex-row gap-5 md:flex justify-start items-start md:justify-between md:items-start">
             <img src="./img/atlas.svg" alt="atlas" loading="lazy" class="h-12 w-12 mt-2">
@@ -382,59 +319,25 @@
         </div>
       </section>
       <!-- Details Sectoin Ends -->
-
-      <!-- Blog Section Start -->
-      <section class="w-full bg-white px-4 sm:px-8 py-12 sm:py-16 md:py-24">
-        <h2 class="font-bold text-4xl text-center">Our Recent Post</h2>
-        <p class="text-center">Vampires The Romantic Ideology Behind Them</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
-          <div class="overflow-hidden rounded-xl hover:shadow-2xl cursor-pointer">
-            <img
-              src="https://images.unsplash.com/photo-1585737655161-76ddbd569e5a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=426&fit=crop&ixid=eyJhcHBfaWQiOjF9"
-              alt="Blog banner 1">
-            <p class="mt-2 px-4 ">By
-              <span class="font-bold ">Abdullah</span>
-              | 03 March 2019</p>
-            <h3 class="font-bold text-2xl leading-tight mt-4 px-4 pb-6 hover:text-red-500">
-              Increasing Prosperity With Positive Thinking
-            </h3>
-          </div>
-          <div class="overflow-hidden rounded hover:shadow-2xl cursor-pointer">
-            <img src="https://source.unsplash.com/uGP_6CAD-14/640x426" alt="Blog banner 1">
-            <p class="mt-2 px-4 ">By
-              <span class="font-bold ">Abdullah</span>
-              | 03 March 2019</p>
-            <h3 class="font-bold text-2xl leading-tight mt-4 px-4 pb-6 hover:text-red-500">
-              Increasing Prosperity With Positive Thinking
-            </h3>
-          </div>
-          <div class="overflow-hidden rounded-xl hover:shadow-2xl cursor-pointer">
-            <img src="https://source.unsplash.com/uGP_6CAD-14/640x426" alt="Blog banner 1">
-            <p class="mt-2 px-4 ">By
-              <span class="font-bold ">Abdullah</span>
-              | 03 March 2019</p>
-            <h3 class="font-bold text-2xl leading-tight mt-4 px-4 pb-6 hover:text-red-500">
-              Increasing Prosperity With Positive Thinking
-            </h3>
-          </div>
-        </div>
-      </section>
-      <!-- Blog Section End -->
     </main>
 
     <!-- Footer Start -->
     <footer
-      class="max-w-screen-xl mx-auto border-t px-8 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch justify-between bg-white">
+      class="max-w-screen-xl mx-auto border-t px-8 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch justify-between text-white bg-gray-600">
 
-      <img src="./img/logo.svg" alt="Productly" class="text-center self-start w-36">
-      <div class="w-full grid grid-cols-1 text-center md:text-left row-gap-12 sm:grid-cols-3 md:col-span-2">
+      <div>
+        <img src="./img/logo.svg" alt="Productly" class="text-center self-start w-36">
+        <p class="mt-8 capitalize font-light">all rights are registered for Protips Lorem ipsum dolor, sit amet
+          consectetur adipisicing elit. Distinctio obcaecati.</p>
+      </div>
+      <div class="w-full grid grid-cols-1 text-center md:text-left row-gap-12 sm:grid-cols-3 md:col-span-2 order-1">
 
         <div>
           <h3 class="text-xl font-bold">Quick Links</h3>
-          <a href="/" class="my-2 mt-8 font-light block hover:text-red-500">About us</a>
-          <a href="/" class="my-2 font-light block hover:text-red-500">Blog</a>
-          <a href="/" class="my-2 font-light block hover:text-red-500">Contact</a>
-          <a href="/" class="my-2 font-light block hover:text-red-500">FAQ</a>
+          <a href="/" class="my-2 mt-8 font-light block hover:text-red-500">Home</a>
+          <a href="/" class="my-2 font-light block hover:text-red-500">Question</a>
+          <a href="/" class="my-2 font-light block hover:text-red-500">Answers</a>
+          <a href="/" class="my-2 font-light block hover:text-red-500">Authors</a>
         </div>
         <div>
           <h3 class="text-xl font-bold">Legal Stuff</h3>
@@ -461,23 +364,15 @@
     <!-- Footer Ends -->
 
     <!-- Video Model -->
-    <div
-      class="bg-white p-4 md:p-8 rounded-md fixed w-11/12 md:w-9/12 h-72 sm:h-auto flex items-center justify-center shadow-2xl videoModal"
-      style="top: 50%; left: 50%; transform: translate(-50%, -50%);" x-show="isVideoOpen"
-      @click.away="isVideoOpen = false">
-      <iframe title="vimeo-player" src="https://player.vimeo.com/video/336812686" class="videoModal" width="100%"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
-
   </div>
 
 </body>
 <script src="/dist/main.bundle.js" defer></script>
-<script src="/dist/hammerjs.min.js"></script>
 <script>
 
   const navbar = document.querySelector(".navbar");
   const dots = document.querySelectorAll(".dot");
+  const navbarBtn = document.querySelector(".navbar-toogle");
   const testimonials = document.querySelectorAll(".mySlides");
   let clickCount = 0;
 
@@ -486,10 +381,11 @@
     if (window.pageYOffset >= 120) {
       navbar.classList.add("scrolled");
       navbar.classList.add("shadow-lg");
+      navbarBtn.classList.add("scrolled-navbutton")
     } else {
       navbar.classList.remove("scrolled");
       navbar.classList.remove("shadow-lg");
-
+      navbarBtn.classList.remove("scrolled-navbutton")
     }
   });
 

@@ -11,9 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "aos": "^2.3.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "alpinejs": "^2.7.0",
