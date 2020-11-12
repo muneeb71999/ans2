@@ -4,7 +4,7 @@ const OptimizCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   optimization: {
     minimizer: [new OptimizCssAssetsPlugin(), new TerserPlugin()],
   },
@@ -14,7 +14,7 @@ module.exports = {
     filename: "main.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
-  watch: true,
+  // watch: true,
   plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
