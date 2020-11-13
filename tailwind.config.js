@@ -1,8 +1,8 @@
 module.exports = {
-  // purge: {
-  //   enabled: true,
-  //   content: ["./**.html"],
-  // },
+  purge: {
+    enabled: true,
+    content: ["./**.html"],
+  },
   theme: {
     borderRadius: {
       sm: "0.125rem",
